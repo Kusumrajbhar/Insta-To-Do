@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Login from './login/Login'
+import Home from './home/Home'
+import ErrorPage from './404Page/ErrorPage';
+import Header from './header/Header';
 
 function App() {
+  const [isLog, setIsLog] = useState(false)
+
+  const logPropHandler = () => {
+    setIsLog({isLog})
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+     <Switch>
+       {
+         !isLog ?
+         <Route exact path='/' component={()=><Login isLogin = {logPropHandler} />} />
+         :
+         <Route path='/' render={Home}  />
+       }
+  
+     <Route  path='*' component={ErrorPage} />
+     {/* <Route render={()=><Login logOut = {logPropHandler} />}/> */}
+     </Switch>
     </div>
   );
 }
 
 export default App;
+
+//'*' all
+  //  <Route  path='/' component={() => !isLog ? <Login isLogin = {logPropHandler}/> : <Home />} />
