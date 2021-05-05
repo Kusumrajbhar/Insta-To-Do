@@ -5,6 +5,7 @@ import Login from './login/Login'
 import Home from './home/Home'
 import ErrorPage from './404Page/ErrorPage';
 import Header from './header/Header';
+import {UserProvider} from './UserContext'
 
 function App() {
   const [isLog, setIsLog] = useState(false)
@@ -21,7 +22,7 @@ function App() {
          !isLog ?
          <Route exact path='/' component={()=><Login isLogin = {logPropHandler} />} />
          :
-         <Route path='/' render={Home}  />
+         <Route path='/' component={()=><UserProvider logOut = {logPropHandler} ><Home /></UserProvider> } />
        }
   
      <Route  path='*' component={ErrorPage} />
@@ -29,6 +30,7 @@ function App() {
      </Switch>
     </div>
   );
+  
 }
 
 export default App;

@@ -1,11 +1,13 @@
 import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
 import './Header.css'
+import {UserConsumer} from '../UserContext'
 
-function Header() {
+function Header(props) {
   const logoutHandler = (e) => {
         e.preventDefault()    //prevent refereshing
-        this.props.logOut(false)
+       // props.logOut(false)
+       //props.logOutProp()
       }
     return (
         <nav>
@@ -14,9 +16,14 @@ function Header() {
                 <div className='text'>
                     <NavLink to='/' className='text' activeClassName='active'>Home</NavLink>{''}
                     <NavLink to='/explore' className='text'>Explore</NavLink>
-                    {/* <Link to='/login'> */}
-                    <button className='header-button' activeClassName='active'>Log Out</button>
-                    {/* </Link> */}
+                    {/* <UserConsumer>
+                        {
+                          (logOut) => { */}
+                          <button className='header-button' activeClassName='active' onClick={'kus'}>Log Out</button>
+                          {/* }  
+                        }
+                   
+                   </UserConsumer> */}
                 </div>
             </div>          
         </nav>

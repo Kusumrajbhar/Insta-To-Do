@@ -4,9 +4,11 @@ import {Switch, Route} from 'react-router-dom'
 import NewHome from '../newHome/NewHome'
 import Explore from '../explore/Explore'
 
-function Home() {
+function Home(props) {
+    //const logOutProp = props.logOut(false)
     return (
         <div>
+            {/* <Header logOutProp={logOutProp}/> */}
             <Header />
             <Switch>
                 <Route exact path='/'component={NewHome}/>
