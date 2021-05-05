@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
+import AppLazy from './AppLazy';
+import Form from './Form/Form';
+import AppForm from './AppForm';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
     <App />
-    </BrowserRouter>
+    </BrowserRouter> */}
+    {/* <AppLazy /> */}
+    <AppForm />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
